@@ -6,8 +6,8 @@ describe('simpleCalculator tests', () => {
     expect(simpleCalculator({ a: 5, b: 3, action: Action.Add })).toBe(8);
   });
 
-  test('should substract two numbers', () => {
-    expect(simpleCalculator({ a: 5, b: 3, action: Action.Substract })).toBe(2);
+  test('should subtract two numbers', () => {
+    expect(simpleCalculator({ a: 5, b: 3, action: Action.Subtract })).toBe(2);
   });
 
   test('should multiply two numbers', () => {
