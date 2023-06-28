@@ -85,13 +85,13 @@ describe('readFileAsynchronously', () => {
     const pathToFile = 'file.ts';
     const joinSpy = jest.spyOn(path, 'join');
     await readFileAsynchronously(pathToFile);
-    expect(joinSpy).toBeCalledWith(expect.any(String), pathToFile);
+    return expect(joinSpy).toBeCalledWith(expect.any(String), pathToFile);
   });
 
   test('should return null if file does not exist', async () => {
     expect.assertions(1);
     const pathToFile = 'nonExisting.someFile';
-    expect(readFileAsynchronously(pathToFile)).resolves.toBeNull();
+    return expect(readFileAsynchronously(pathToFile)).resolves.toBeNull();
   });
 
   test('should return file content if file exists', async () => {
@@ -101,6 +101,8 @@ describe('readFileAsynchronously', () => {
     (<jest.Mock>readFile).mockResolvedValue(fileContent);
 
     const pathToFile = 'somepath.txt';
-    expect(readFileAsynchronously(pathToFile)).resolves.toBe(fileContent);
+    return expect(readFileAsynchronously(pathToFile)).resolves.toBe(
+      fileContent,
+    );
   });
 });

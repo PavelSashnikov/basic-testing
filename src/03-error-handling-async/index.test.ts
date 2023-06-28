@@ -10,7 +10,7 @@ describe('resolveValue', () => {
   test('should resolve provided value', async () => {
     const pData = 123;
     expect.assertions(1);
-    expect(resolveValue(pData)).resolves.toBe(pData);
+    return expect(resolveValue(pData)).resolves.toBe(pData);
   });
 });
 
@@ -40,6 +40,6 @@ describe('throwCustomError', () => {
 describe('rejectCustomError', () => {
   test('should reject custom error', async () => {
     expect.assertions(1);
-    expect(rejectCustomError()).rejects.toThrow(MyAwesomeError);
+    return expect(rejectCustomError()).rejects.toThrow(MyAwesomeError);
   });
 });

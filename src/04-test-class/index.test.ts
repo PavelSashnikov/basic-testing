@@ -69,7 +69,7 @@ describe('BankAccount', () => {
     expect.assertions(1);
     jest.spyOn(lodash, 'random').mockReturnValue(0.123);
 
-    expect(acc.fetchBalance()).resolves.toEqual(expect.any(Number));
+    return expect(acc.fetchBalance()).resolves.toEqual(expect.any(Number));
   });
 
   test('should set new balance if fetchBalance returned number', async () => {
